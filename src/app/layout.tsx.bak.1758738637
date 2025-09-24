@@ -1,0 +1,16 @@
+const inter = Inter({ subsets: ["latin","cyrillic"] })
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+
+export const metadata = { title: "Админка" }
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="ru" suppressHydrationWarning>
+      <body className="min-h-screen bg-background antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>{children}</ThemeProvider>
+      </body>
+    </html>
+  )
+}

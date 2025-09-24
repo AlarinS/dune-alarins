@@ -1,0 +1,36 @@
+import { auth } from "@/auth";
+
+// Пути, которые не трогаем, чтобы не ловить цикл
+const PUBLIC_PATHS = [
+  "/api/auth",
+  "/signin",
+  "/signin",
+  "/_next",
+  "/favicon.ico",
+  "/robots.txt",
+  "/sitemap.xml",
+];
+
+export default auth((req) => {
+  const { nextUrl } = req;
+
+  // Пропускаем публичные пути
+  if (PUBLIC_PATHS.some((p) => nextUrl.pathname === p || nextUrl.pathname.startsWith(p + "/"))) {
+    return;
+  }
+
+  // Защищаем только /admin/**
+  if (!nextUrl.pathname.startsWith("/admin")) return;
+
+  // Гостей ведём на встроенную страницу NextAuth
+  if (!req.auth) {
+    const signInUrl = new URL("/api/auth/signin", nextUrl);
+    if (!signInUrl.searchParams.has("callbackUrl")) {
+      signInUrl.searchParams.set("callbackUrl", nextUrl.pathname + nextUrl.search);
+    }
+    return Response.redirect(signInUrl);
+  }
+});
+
+// Применяем только к /admin/**
+export const config = { matcher: ["/admin/:path*"] };

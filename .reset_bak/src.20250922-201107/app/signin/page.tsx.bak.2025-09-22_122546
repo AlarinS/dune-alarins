@@ -1,0 +1,25 @@
+export const dynamic = "force-dynamic";
+import { getCsrfToken } from "next-auth/react";
+
+export default async function SignIn() {
+  const csrfToken = await getCsrfToken();
+  return (
+    <div style={{maxWidth:520,margin:"48px auto",fontFamily:"Inter, system-ui",color:"#e5e7eb"}}>
+      <h1 style={{fontSize:28,marginBottom:16}}>Sign in</h1>
+      <form method="post" action="/api/auth/signin/credentials" style={{display:"grid",gap:12}}>
+        <input type="hidden" name="csrfToken" value={csrfToken ?? ""} />
+        <label>
+          <div style={{marginBottom:6}}>Логин или email</div>
+          <input name="username" required placeholder="user or email"
+                 style={{width:"100%",padding:"10px 12px",borderRadius:8}} />
+        </label>
+        <label>
+          <div style={{marginBottom:6}}>Пароль</div>
+          <input name="password" type="password" required placeholder="••••••••"
+                 style={{width:"100%",padding:"10px 12px",borderRadius:8}} />
+        </label>
+        <button type="submit" style={{padding:"10px 16px",borderRadius:10}}>Sign In</button>
+      </form>
+    </div>
+  );
+}

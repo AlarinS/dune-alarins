@@ -1,0 +1,31 @@
+"use client"
+import { signIn } from "next-auth/react"
+import { useState } from "react"
+
+export default function SignIn() {
+  const [username, setU] = useState("")
+  const [password, setP] = useState("")
+  const [err, setErr] = useState<string|undefined>()
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setErr(undefined)
+    await signIn("credentials", { username, password, redirect: true, callbackUrl: "/admin" })
+    // next-auth сам редиректит; если disabled redirect, обрабатывали бы res?.error
+  }
+
+  return (
+    <div style={{maxWidth:420,margin:"80px auto",fontFamily:"Inter,system-ui"}}>
+      <h1 style={{fontSize:28,marginBottom:20}}>Вход в админку</h1>
+      <button onClick={() => signIn("google", { callbackUrl:"/admin" })} style={{width:"100%",padding:12,marginBottom:12}}>
+        Войти через Google
+      </button>
+      <form onSubmit={onSubmit} style={{display:"grid",gap:10}}>
+        <input placeholder="Логин или e-mail" value={username} onChange={e=>setU(e.target.value)} required style={{padding:10}} />
+        <input placeholder="Пароль" type="password" value={password} onChange={e=>setP(e.target.value)} required style={{padding:10}} />
+        {err && <div style={{color:"crimson"}}>{err}</div>}
+        <button type="submit" style={{padding:12}}>Войти</button>
+      </form>
+    </div>
+  )
+}

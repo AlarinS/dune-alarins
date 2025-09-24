@@ -1,0 +1,30 @@
+import { auth } from "@/auth";
+
+const PUBLIC_PATHS = [
+  "/api/auth",
+  "/signin",
+  "/_next",
+  "/favicon.ico",
+  "/robots.txt",
+  "/sitemap.xml",
+];
+
+export default auth((req) => {
+  const { nextUrl } = req;
+
+  if (PUBLIC_PATHS.some((p) => nextUrl.pathname === p || nextUrl.pathname.startsWith(p + "/"))) {
+    return;
+  }
+
+  if (!nextUrl.pathname.startsWith("/admin")) return;
+
+  if (!req.auth) {
+    const signInUrl = new URL("/api/auth/signin", nextUrl);
+    if (!signInUrl.searchParams.has("callbackUrl")) {
+      signInUrl.searchParams.set("callbackUrl", nextUrl.pathname + nextUrl.search);
+    }
+    return Response.redirect(signInUrl);
+  }
+});
+
+export const config = { matcher: ["/admin/:path*"] };

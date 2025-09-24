@@ -1,0 +1,37 @@
+// ✅ Белый список путей, чтоб не ловить цикл
+const PUBLIC_PATHS = [
+  "/signin",
+  "/api/auth",      // маршруты next-auth
+  "/_next",         // ассеты next
+  "/favicon.ico",
+  "/robots.txt",
+  "/sitemap.xml",
+];
+
+import { auth } from "@/auth";
+
+export default auth((req) => {
+  const { nextUrl } = req;
+
+  // Разрешаем публичные пути
+  if (PUBLIC_PATHS.some((p) => nextUrl.pathname === p || nextUrl.pathname.startsWith(p + "/"))) {
+    return;
+  }
+
+  // Защищаем только /admin/**
+  if (!nextUrl.pathname.startsWith("/admin")) return;
+
+  // Если не авторизован — отправляем на /signin с ОДНИМ callbackUrl
+  if (!req.auth) {
+    const signInUrl = new URL("/signin", nextUrl);
+    // если уже есть callbackUrl — не вкладываем его снова
+    if (!signInUrl.searchParams.has("callbackUrl")) {
+      const target = nextUrl.pathname + nextUrl.search;
+      signInUrl.searchParams.set("callbackUrl", target);
+    }
+    return Response.redirect(signInUrl);
+  }
+});
+
+// Применяем только к /admin/**
+export const config = { matcher: ["/admin/:path*"] };

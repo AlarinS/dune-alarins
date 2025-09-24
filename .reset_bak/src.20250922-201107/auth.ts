@@ -1,0 +1,10 @@
+import NextAuth from "next-auth";
+export const { auth, handlers, signIn, signOut } = NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
+  providers: [
+    // TODO: добавьте реальные провайдеры (GitHub/Google/Email и т.п.)
+  ],
+  pages: {
+    signIn: "/signin",
+  },
+});

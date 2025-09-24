@@ -1,0 +1,614 @@
+[
+  {
+    "id": 1,
+    "header": "Cover page",
+    "type": "Cover page",
+    "status": "В работе",
+    "target": "18",
+    "limit": "5",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 2,
+    "header": "Table of contents",
+    "type": "Table of contents",
+    "status": "Готово",
+    "target": "29",
+    "limit": "24",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 3,
+    "header": "Executive summary",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "10",
+    "limit": "13",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 4,
+    "header": "Technical approach",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "27",
+    "limit": "23",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 5,
+    "header": "Design",
+    "type": "Нарратив",
+    "status": "В работе",
+    "target": "2",
+    "limit": "16",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 6,
+    "header": "Capabilities",
+    "type": "Нарратив",
+    "status": "В работе",
+    "target": "20",
+    "limit": "8",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 7,
+    "header": "Integration with existing systems",
+    "type": "Нарратив",
+    "status": "В работе",
+    "target": "19",
+    "limit": "21",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 8,
+    "header": "Innovation and Advantages",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "25",
+    "limit": "26",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 9,
+    "header": "Overview of EMR's Innovative Solutions",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "7",
+    "limit": "23",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 10,
+    "header": "Advanced Algorithms and Machine Learning",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "30",
+    "limit": "28",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 11,
+    "header": "Adaptive Communication Protocols",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "9",
+    "limit": "31",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 12,
+    "header": "Advantages Over Current Technologies",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "12",
+    "limit": "0",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 13,
+    "header": "Прошлые показатели",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "22",
+    "limit": "33",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 14,
+    "header": "Customer Feedback and Satisfaction Levels",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "15",
+    "limit": "34",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 15,
+    "header": "Implementation Challenges and Solutions",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "3",
+    "limit": "35",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 16,
+    "header": "Security Measures and Data Protection Policies",
+    "type": "Нарратив",
+    "status": "В работе",
+    "target": "6",
+    "limit": "36",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 17,
+    "header": "Scalability and Future Proofing",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "4",
+    "limit": "37",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 18,
+    "header": "Cost-Benefit Analysis",
+    "type": "Простым языком",
+    "status": "Готово",
+    "target": "14",
+    "limit": "38",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 19,
+    "header": "User Training and Onboarding Experience",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "17",
+    "limit": "39",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 20,
+    "header": "Future Development Roadmap",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "11",
+    "limit": "40",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 21,
+    "header": "System Architecture Overview",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "24",
+    "limit": "18",
+    "reviewer": "Maya Johnson"
+  },
+  {
+    "id": 22,
+    "header": "Risk Management Plan",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "15",
+    "limit": "22",
+    "reviewer": "Carlos Rodriguez"
+  },
+  {
+    "id": 23,
+    "header": "Compliance Documentation",
+    "type": "Юридическое",
+    "status": "В работе",
+    "target": "31",
+    "limit": "27",
+    "reviewer": "Sarah Chen"
+  },
+  {
+    "id": 24,
+    "header": "API Documentation",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "8",
+    "limit": "12",
+    "reviewer": "Raj Patel"
+  },
+  {
+    "id": 25,
+    "header": "User Interface Mockups",
+    "type": "Визуализация",
+    "status": "В работе",
+    "target": "19",
+    "limit": "25",
+    "reviewer": "Leila Ahmadi"
+  },
+  {
+    "id": 26,
+    "header": "Database Schema",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "22",
+    "limit": "20",
+    "reviewer": "Thomas Wilson"
+  },
+  {
+    "id": 27,
+    "header": "Testing Methodology",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "17",
+    "limit": "14",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 28,
+    "header": "Deployment Strategy",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "26",
+    "limit": "30",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 29,
+    "header": "Budget Breakdown",
+    "type": "Финансы",
+    "status": "В работе",
+    "target": "13",
+    "limit": "16",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 30,
+    "header": "Market Analysis",
+    "type": "Исследование",
+    "status": "Готово",
+    "target": "29",
+    "limit": "32",
+    "reviewer": "Sophia Martinez"
+  },
+  {
+    "id": 31,
+    "header": "Competitor Comparison",
+    "type": "Исследование",
+    "status": "В работе",
+    "target": "21",
+    "limit": "19",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 32,
+    "header": "Maintenance Plan",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "16",
+    "limit": "23",
+    "reviewer": "Alex Thompson"
+  },
+  {
+    "id": 33,
+    "header": "User Personas",
+    "type": "Исследование",
+    "status": "В работе",
+    "target": "27",
+    "limit": "24",
+    "reviewer": "Nina Patel"
+  },
+  {
+    "id": 34,
+    "header": "Accessibility Compliance",
+    "type": "Юридическое",
+    "status": "Готово",
+    "target": "18",
+    "limit": "21",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 35,
+    "header": "Метрики эффективности",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "23",
+    "limit": "26",
+    "reviewer": "David Kim"
+  },
+  {
+    "id": 36,
+    "header": "Disaster Recovery Plan",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "14",
+    "limit": "17",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 37,
+    "header": "Third-party Integrations",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "25",
+    "limit": "28",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 38,
+    "header": "User Feedback Summary",
+    "type": "Исследование",
+    "status": "Готово",
+    "target": "20",
+    "limit": "15",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 39,
+    "header": "Localization Strategy",
+    "type": "Нарратив",
+    "status": "В работе",
+    "target": "12",
+    "limit": "19",
+    "reviewer": "Maria Garcia"
+  },
+  {
+    "id": 40,
+    "header": "Mobile Compatibility",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "28",
+    "limit": "31",
+    "reviewer": "James Wilson"
+  },
+  {
+    "id": 41,
+    "header": "Data Migration Plan",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "19",
+    "limit": "22",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 42,
+    "header": "Quality Assurance Protocols",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "30",
+    "limit": "33",
+    "reviewer": "Priya Singh"
+  },
+  {
+    "id": 43,
+    "header": "Stakeholder Analysis",
+    "type": "Исследование",
+    "status": "В работе",
+    "target": "11",
+    "limit": "14",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 44,
+    "header": "Environmental Impact Assessment",
+    "type": "Исследование",
+    "status": "Готово",
+    "target": "24",
+    "limit": "27",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 45,
+    "header": "Intellectual Property Rights",
+    "type": "Юридическое",
+    "status": "В работе",
+    "target": "17",
+    "limit": "20",
+    "reviewer": "Sarah Johnson"
+  },
+  {
+    "id": 46,
+    "header": "Customer Support Framework",
+    "type": "Нарратив",
+    "status": "Готово",
+    "target": "22",
+    "limit": "25",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 47,
+    "header": "Version Control Strategy",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "15",
+    "limit": "18",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 48,
+    "header": "Continuous Integration Pipeline",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "26",
+    "limit": "29",
+    "reviewer": "Michael Chen"
+  },
+  {
+    "id": 49,
+    "header": "Regulatory Compliance",
+    "type": "Юридическое",
+    "status": "В работе",
+    "target": "13",
+    "limit": "16",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 50,
+    "header": "User Authentication System",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "28",
+    "limit": "31",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 51,
+    "header": "Data Analytics Framework",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "21",
+    "limit": "24",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 52,
+    "header": "Cloud Infrastructure",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "16",
+    "limit": "19",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 53,
+    "header": "Network Security Measures",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "29",
+    "limit": "32",
+    "reviewer": "Lisa Wong"
+  },
+  {
+    "id": 54,
+    "header": "Project Timeline",
+    "type": "Планирование",
+    "status": "Готово",
+    "target": "14",
+    "limit": "17",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 55,
+    "header": "Resource Allocation",
+    "type": "Планирование",
+    "status": "В работе",
+    "target": "27",
+    "limit": "30",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 56,
+    "header": "Структура команды и роли",
+    "type": "Планирование",
+    "status": "Готово",
+    "target": "20",
+    "limit": "23",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 57,
+    "header": "Communication Protocols",
+    "type": "Планирование",
+    "status": "В работе",
+    "target": "15",
+    "limit": "18",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 58,
+    "header": "Success Metrics",
+    "type": "Планирование",
+    "status": "Готово",
+    "target": "30",
+    "limit": "33",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 59,
+    "header": "Internationalization Support",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "23",
+    "limit": "26",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 60,
+    "header": "Backup and Recovery Procedures",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "18",
+    "limit": "21",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 61,
+    "header": "Monitoring and Alerting System",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "25",
+    "limit": "28",
+    "reviewer": "Daniel Park"
+  },
+  {
+    "id": 62,
+    "header": "Code Review Guidelines",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "12",
+    "limit": "15",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 63,
+    "header": "Documentation Standards",
+    "type": "Техническое содержание",
+    "status": "В работе",
+    "target": "27",
+    "limit": "30",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 64,
+    "header": "Release Management Process",
+    "type": "Планирование",
+    "status": "Готово",
+    "target": "22",
+    "limit": "25",
+    "reviewer": "Назначить ревьюера"
+  },
+  {
+    "id": 65,
+    "header": "Feature Prioritization Matrix",
+    "type": "Планирование",
+    "status": "В работе",
+    "target": "19",
+    "limit": "22",
+    "reviewer": "Emma Davis"
+  },
+  {
+    "id": 66,
+    "header": "Technical Debt Assessment",
+    "type": "Техническое содержание",
+    "status": "Готово",
+    "target": "24",
+    "limit": "27",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 67,
+    "header": "Capacity Planning",
+    "type": "Планирование",
+    "status": "В работе",
+    "target": "21",
+    "limit": "24",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 68,
+    "header": "Service Level Agreements",
+    "type": "Юридическое",
+    "status": "Готово",
+    "target": "26",
+    "limit": "29",
+    "reviewer": "Назначить ревьюера"
+  }
+]

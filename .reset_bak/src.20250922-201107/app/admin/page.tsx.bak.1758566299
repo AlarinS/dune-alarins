@@ -1,0 +1,12 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
+
+export default async function AdminIndex() {
+  const session = await auth();
+  if (!session) {
+    redirect(`/api/auth/signin?callbackUrl=/admin`);
+  }
+  redirect("/admin/dashboard");
+}
