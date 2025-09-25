@@ -11,11 +11,11 @@ import {
 
 export function SectionCards() {
   return (
-    <div className="*:data-[slot=card]:shadow-xs @xl/main:grid-cols-1 @5xl/main:grid-cols-1 grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card lg:px-6">
+    <div className="*:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card lg:px-6">
       <Card className="@container/card">
-        <CardHeader className="pb-2 relative">
-          <CardDescription className="text-muted-foreground">Общая выручка</CardDescription>
-          <CardTitle className="text-2xl tracking-tight @[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
+        <CardHeader className="relative">
+          <CardDescription>Total Revenue</CardDescription>
+          <CardTitle className="@[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
             $1,250.00
           </CardTitle>
           <div className="absolute right-4 top-4">
@@ -27,17 +27,17 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Рост в этом месяце <TrendingUpIcon className="size-4" />
+            Trending up this month <TrendingUpIcon className="size-4" />
           </div>
           <div className="text-muted-foreground">
-            Посетители за последние 6 месяцев
+            Visitors for the last 6 months
           </div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
-        <CardHeader className="pb-2 relative">
-          <CardDescription className="text-muted-foreground">Новые клиенты</CardDescription>
-          <CardTitle className="text-2xl tracking-tight @[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
+        <CardHeader className="relative">
+          <CardDescription>New Customers</CardDescription>
+          <CardTitle className="@[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
             1,234
           </CardTitle>
           <div className="absolute right-4 top-4">
@@ -49,17 +49,17 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Падение на 20% за этот период <TrendingDownIcon className="size-4" />
+            Down 20% this period <TrendingDownIcon className="size-4" />
           </div>
           <div className="text-muted-foreground">
-            Требует внимания привлечение
+            Acquisition needs attention
           </div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
-        <CardHeader className="pb-2 relative">
-          <CardDescription className="text-muted-foreground">Активные аккаунты</CardDescription>
-          <CardTitle className="text-2xl tracking-tight @[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
+        <CardHeader className="relative">
+          <CardDescription>Active Accounts</CardDescription>
+          <CardTitle className="@[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
             45,678
           </CardTitle>
           <div className="absolute right-4 top-4">
@@ -71,15 +71,15 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Хорошее удержание пользователей <TrendingUpIcon className="size-4" />
+            Strong user retention <TrendingUpIcon className="size-4" />
           </div>
-          <div className="text-muted-foreground">Вовлечённость превысила цели</div>
+          <div className="text-muted-foreground">Engagement exceed targets</div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
-        <CardHeader className="pb-2 relative">
-          <CardDescription className="text-muted-foreground">Темпы роста</CardDescription>
-          <CardTitle className="text-2xl tracking-tight @[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
+        <CardHeader className="relative">
+          <CardDescription>Growth Rate</CardDescription>
+          <CardTitle className="@[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
             4.5%
           </CardTitle>
           <div className="absolute right-4 top-4">
@@ -91,9 +91,9 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Стабильные показатели <TrendingUpIcon className="size-4" />
+            Steady performance <TrendingUpIcon className="size-4" />
           </div>
-          <div className="text-muted-foreground">Соответствует прогнозам роста</div>
+          <div className="text-muted-foreground">Meets growth projections</div>
         </CardFooter>
       </Card>
     </div>

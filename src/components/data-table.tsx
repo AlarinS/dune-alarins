@@ -1,6 +1,4 @@
 "use client"
-import { mapType, mapStatus, t } from "@/lib/i18n"
-import type { CheckedState } from "@radix-ui/react-checkbox"
 
 import * as React from "react"
 import {
@@ -150,14 +148,9 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     header: ({ table }) => (
       <div className="flex items-center justify-center">
         <Checkbox
-          checked={
-    (table.getIsAllPageRowsSelected()
-      ? true
-      : (table.getIsSomePageRowsSelected() ? "indeterminate" : false)
-    ) as CheckedState
-  }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!!!!!value)}
-          aria-label="Выбрать все"
+          checked={table.getIsAllPageRowsSelected() ? true : (table.getIsSomePageRowsSelected() ? "indeterminate" : false)}
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
         />
       </div>
     ),
@@ -165,8 +158,8 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       <div className="flex items-center justify-center">
         <Checkbox
           checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!!!!!value)}
-          aria-label="Выбрать строку"
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
         />
       </div>
     ),
@@ -175,7 +168,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   },
   {
     accessorKey: "header",
-    header: "Заголовок",
+    header: "Header",
     cell: ({ row }) => {
       return <TableCellViewer item={row.original} />
     },
@@ -183,42 +176,43 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   },
   {
     accessorKey: "type",
-    header: "Тип секции",
+    header: "Section Type",
     cell: ({ row }) => (
       <div className="w-32">
         <Badge variant="outline" className="px-1.5 text-muted-foreground">
-          {mapType(row.original.type)}
+          {row.original.type}
         </Badge>
       </div>
     ),
   },
   {
     accessorKey: "status",
-    header: "Статус",
+    header: "Status",
     cell: ({ row }) => (
       <Badge
         variant="outline"
         className="flex gap-1 px-1.5 text-muted-foreground [&_svg]:size-3"
       >
-        {row.original.status === "Готово" ? (
+        {row.original.status === "Done" ? (
           <CheckCircle2Icon className="text-green-500 dark:text-green-400" />
         ) : (
           <LoaderIcon />
         )}
-        {mapStatus(row.original.status)}
+        {row.original.status}
       </Badge>
     ),
   },
   {
-    accessorKey: "target",header: "Цель",
+    accessorKey: "target",
+    header: () => <div className="w-full text-right">Target</div>,
     cell: ({ row }) => (
       <form
         onSubmit={(e) => {
           e.preventDefault()
           toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-            loading: "Сохраняю «" + row.original.header + "»",
-            success: "Готово",
-            error: "Ошибка",
+            loading: `Saving ${row.original.header}`,
+            success: "Done",
+            error: "Error",
           })
         }}
       >
@@ -234,15 +228,16 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     ),
   },
   {
-    accessorKey: "limit",header: "Лимит",
+    accessorKey: "limit",
+    header: () => <div className="w-full text-right">Limit</div>,
     cell: ({ row }) => (
       <form
         onSubmit={(e) => {
           e.preventDefault()
           toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-            loading: "Сохраняю «" + row.original.header + "»",
-            success: "Готово",
-            error: "Ошибка",
+            loading: `Saving ${row.original.header}`,
+            success: "Done",
+            error: "Error",
           })
         }}
       >
@@ -259,9 +254,9 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   },
   {
     accessorKey: "reviewer",
-    header: "Ревьюер",
+    header: "Reviewer",
     cell: ({ row }) => {
-      const isAssigned = row.original.reviewer !== "Назначить ревьюера"
+      const isAssigned = row.original.reviewer !== "Assign reviewer"
 
       if (isAssigned) {
         return row.original.reviewer
@@ -277,7 +272,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
               className="h-8 w-40"
               id={`${row.original.id}-reviewer`}
             >
-              <SelectValue placeholder={t("assign_reviewer","Назначить ревьюера")} />
+              <SelectValue placeholder="Assign reviewer" />
             </SelectTrigger>
             <SelectContent align="end">
               <SelectItem value="Eddie Lake">Eddie Lake</SelectItem>
@@ -305,11 +300,11 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>Редактировать</DropdownMenuItem>
-          <DropdownMenuItem>Сделать копию</DropdownMenuItem>
-          <DropdownMenuItem>В избранное</DropdownMenuItem>
+          <DropdownMenuItem>Edit</DropdownMenuItem>
+          <DropdownMenuItem>Make a copy</DropdownMenuItem>
+          <DropdownMenuItem>Favorite</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Удалить</DropdownMenuItem>
+          <DropdownMenuItem>Delete</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     ),
@@ -412,25 +407,27 @@ export function DataTable({
       className="flex w-full flex-col justify-start gap-6"
     >
       <div className="flex items-center justify-between px-4 lg:px-6">
-        <Label htmlFor="view-selector" className="sr-only">Вид</Label>
+        <Label htmlFor="view-selector" className="sr-only">
+          View
+        </Label>
         <Select defaultValue="outline">
           <SelectTrigger
             className="@4xl/main:hidden flex w-fit"
             id="view-selector"
           >
-            <SelectValue placeholder="Выберите вид" />
+            <SelectValue placeholder="Select a view" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="outline">План</SelectItem>
-            <SelectItem value="past-performance">Прошлые показатели</SelectItem>
-            <SelectItem value="key-personnel">Ключевые сотрудники</SelectItem>
-            <SelectItem value="focus-documents">Ключевые документы</SelectItem>
+            <SelectItem value="outline">Outline</SelectItem>
+            <SelectItem value="past-performance">Past Performance</SelectItem>
+            <SelectItem value="key-personnel">Key Personnel</SelectItem>
+            <SelectItem value="focus-documents">Focus Documents</SelectItem>
           </SelectContent>
         </Select>
         <TabsList className="@4xl/main:flex hidden">
-          <TabsTrigger value="outline">План</TabsTrigger>
+          <TabsTrigger value="outline">Outline</TabsTrigger>
           <TabsTrigger value="past-performance" className="gap-1">
-            Прошлые показатели{" "}
+            Past Performance{" "}
             <Badge
               variant="secondary"
               className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
@@ -439,7 +436,7 @@ export function DataTable({
             </Badge>
           </TabsTrigger>
           <TabsTrigger value="key-personnel" className="gap-1">
-            Ключевые сотрудники{" "}
+            Key Personnel{" "}
             <Badge
               variant="secondary"
               className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
@@ -447,7 +444,7 @@ export function DataTable({
               2
             </Badge>
           </TabsTrigger>
-          <TabsTrigger value="focus-documents">Ключевые документы</TabsTrigger>
+          <TabsTrigger value="focus-documents">Focus Documents</TabsTrigger>
         </TabsList>
         <div className="flex items-center gap-2">
           <DropdownMenu>
@@ -455,7 +452,7 @@ export function DataTable({
               <Button variant="outline" size="sm">
                 <ColumnsIcon />
                 <span className="hidden lg:inline">Customize Columns</span>
-                <span className="lg:hidden">{t("columns","Столбцы")}</span>
+                <span className="lg:hidden">Columns</span>
                 <ChevronDownIcon />
               </Button>
             </DropdownMenuTrigger>
@@ -536,7 +533,7 @@ export function DataTable({
                       colSpan={columns.length}
                       className="h-24 text-center"
                     >
-                      Нет данных.
+                      No results.
                     </TableCell>
                   </TableRow>
                 )}
@@ -552,7 +549,7 @@ export function DataTable({
           <div className="flex w-full items-center gap-8 lg:w-fit">
             <div className="hidden items-center gap-2 lg:flex">
               <Label htmlFor="rows-per-page" className="text-sm font-medium">
-                Строк на странице
+                Rows per page
               </Label>
               <Select
                 value={`${table.getState().pagination.pageSize}`}
@@ -642,21 +639,21 @@ export function DataTable({
 }
 
 const chartData = [
-  { month: "Январь", desktop: 186, mobile: 80 },
-  { month: "Февраль", desktop: 305, mobile: 200 },
-  { month: "Март", desktop: 237, mobile: 120 },
-  { month: "Апрель", desktop: 73, mobile: 190 },
-  { month: "Май", desktop: 209, mobile: 130 },
-  { month: "Июнь", desktop: 214, mobile: 140 },
+  { month: "January", desktop: 186, mobile: 80 },
+  { month: "February", desktop: 305, mobile: 200 },
+  { month: "March", desktop: 237, mobile: 120 },
+  { month: "April", desktop: 73, mobile: 190 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "June", desktop: 214, mobile: 140 },
 ]
 
 const chartConfig = {
   desktop: {
-    label: "Десктоп",
+    label: "Desktop",
     color: "var(--primary)",
   },
   mobile: {
-    label: "Мобильные",
+    label: "Mobile",
     color: "var(--primary)",
   },
 } satisfies ChartConfig
@@ -675,7 +672,7 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
         <SheetHeader className="gap-1">
           <SheetTitle>{item.header}</SheetTitle>
           <SheetDescription>
-            Динамика посетителей за последние 6 месяцев
+            Showing total visitors for the last 6 months
           </SheetDescription>
         </SheetHeader>
         <div className="flex flex-1 flex-col gap-4 overflow-y-auto py-4 text-sm">
@@ -724,11 +721,13 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
               <Separator />
               <div className="grid gap-2">
                 <div className="flex gap-2 font-medium leading-none">
-                  Рост на 5.2% в этом месяце{" "}
+                  Trending up by 5.2% this month{" "}
                   <TrendingUpIcon className="size-4" />
                 </div>
                 <div className="text-muted-foreground">
-                  Динамика посетителей за последние 6 месяцев. Тестовый текст для проверки вёрстки. Несколько строк, должен переноситься.
+                  Showing total visitors for the last 6 months. This is just
+                  some random text to test the layout. It spans multiple lines
+                  and should wrap around.
                 </div>
               </div>
               <Separator />
@@ -736,65 +735,65 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
           )}
           <form className="flex flex-col gap-4">
             <div className="flex flex-col gap-3">
-              <Label htmlFor="header">Заголовок</Label>
+              <Label htmlFor="header">Header</Label>
               <Input id="header" defaultValue={item.header} />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-3">
-                <Label htmlFor="type">Тип</Label>
+                <Label htmlFor="type">Type</Label>
                 <Select defaultValue={item.type}>
                   <SelectTrigger id="type" className="w-full">
-                    <SelectValue placeholder="Выберите тип" />
+                    <SelectValue placeholder="Select a type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Оглавление">
-                      Оглавление
+                    <SelectItem value="Table of Contents">
+                      Table of Contents
                     </SelectItem>
-                    <SelectItem value="Резюме">
-                      Резюме
+                    <SelectItem value="Executive Summary">
+                      Executive Summary
                     </SelectItem>
-                    <SelectItem value="Технический подход">
-                      Технический подход
+                    <SelectItem value="Technical Approach">
+                      Technical Approach
                     </SelectItem>
-                    <SelectItem value="Дизайн">Дизайн</SelectItem>
-                    <SelectItem value="Возможности">Возможности</SelectItem>
-                    <SelectItem value="Ключевые документы">
-                      Ключевые документы
+                    <SelectItem value="Design">Design</SelectItem>
+                    <SelectItem value="Capabilities">Capabilities</SelectItem>
+                    <SelectItem value="Focus Documents">
+                      Focus Documents
                     </SelectItem>
-                    <SelectItem value="Нарратив">Нарратив</SelectItem>
+                    <SelectItem value="Narrative">Narrative</SelectItem>
                     <SelectItem value="Cover Page">Cover Page</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="flex flex-col gap-3">
-                <Label htmlFor="status">Статус</Label>
+                <Label htmlFor="status">Status</Label>
                 <Select defaultValue={item.status}>
                   <SelectTrigger id="status" className="w-full">
-                    <SelectValue placeholder="Выберите статус" />
+                    <SelectValue placeholder="Select a status" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Готово">Готово</SelectItem>
-                    <SelectItem value="В работе">В работе</SelectItem>
-                    <SelectItem value="Не начато">Не начато</SelectItem>
+                    <SelectItem value="Done">Done</SelectItem>
+                    <SelectItem value="In Progress">In Progress</SelectItem>
+                    <SelectItem value="Not Started">Not Started</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-3">
-                <Label htmlFor="target">Цель</Label>
+                <Label htmlFor="target">Target</Label>
                 <Input id="target" defaultValue={item.target} />
               </div>
               <div className="flex flex-col gap-3">
-                <Label htmlFor="limit">Лимит</Label>
+                <Label htmlFor="limit">Limit</Label>
                 <Input id="limit" defaultValue={item.limit} />
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <Label htmlFor="reviewer">Ревьюер</Label>
+              <Label htmlFor="reviewer">Reviewer</Label>
               <Select defaultValue={item.reviewer}>
                 <SelectTrigger id="reviewer" className="w-full">
-                  <SelectValue placeholder="Выберите ревьюера" />
+                  <SelectValue placeholder="Select a reviewer" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="Eddie Lake">Eddie Lake</SelectItem>
@@ -808,10 +807,10 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
           </form>
         </div>
         <SheetFooter className="mt-auto flex gap-2 sm:flex-col sm:space-x-0">
-          <Button className="w-full">{t("submit","Сохранить")}</Button>
+          <Button className="w-full">Submit</Button>
           <SheetClose asChild>
             <Button variant="outline" className="w-full">
-              Готово
+              Done
             </Button>
           </SheetClose>
         </SheetFooter>
