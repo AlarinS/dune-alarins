@@ -1,3 +1,4 @@
+import type { CheckedState } from "@radix-ui/react-checkbox";
 "use client"
 
 import * as React from "react"
@@ -148,8 +149,8 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     header: ({ table }) => (
       <div className="flex items-center justify-center">
         <Checkbox
-          checked={table.getIsAllPageRowsSelected() ? true : (table.getIsSomePageRowsSelected() ? "indeterminate" : false)}
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          checked={(table.getIsAllPageRowsSelected() ? true : (table.getIsSomePageRowsSelected() ? "indeterminate" : false)) as CheckedState}
+          onCheckedChange={(value: CheckedState) => value !== "indeterminate" && table.toggleAllPageRowsSelected(!!value)}
           aria-label="Select all"
         />
       </div>
@@ -158,7 +159,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       <div className="flex items-center justify-center">
         <Checkbox
           checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          onCheckedChange={(value: CheckedState) => value !== "indeterminate" && row.toggleSelected(!!value)}
           aria-label="Select row"
         />
       </div>
