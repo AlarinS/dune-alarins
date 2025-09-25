@@ -45,7 +45,8 @@
   --input: 240 3.7% 15.9%;
   --ring: 240 4.9% 83.9%;
 }
-/* Mapping для tailwind v4 */
+
+/* ===== Tailwind v4 theme mapping ===== */
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-background: hsl(var(--background));
@@ -69,6 +70,9 @@
   --color-ring: hsl(var(--ring));
   --radius: var(--radius);
 }
-/* Base */
+
+/* ===== Base ===== */
 * { @apply border-border; }
-body { @apply bg-background text-foreground; }
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}

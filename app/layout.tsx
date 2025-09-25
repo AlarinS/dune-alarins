@@ -1,4 +1,10 @@
 import "./globals.css";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="en"><body>{children}</body></html>;
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-dvh bg-background text-foreground font-sans antialiased">
+        {children}
+      </body>
+    </html>
+  );
 }
