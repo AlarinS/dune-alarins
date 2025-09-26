@@ -12,7 +12,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <AppSidebar />
         <div className="flex flex-1 flex-col">
           <SiteHeader />
-          <main className="flex-1 p-4 md:p-6">{children}</main>
+          <main  className="flex-1 p-4 md:p-6 lg:pl-64">{children}</main>
         </div>
       </div>
     </SidebarProvider>
