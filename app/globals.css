@@ -1,3 +1,5 @@
+@tailwind components;
+@tailwind base;
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
@@ -122,3 +124,11 @@ body {
 @media (max-width:1024px){
   .with-sidebar{ padding-left:0; }
 }
+@tailwind utilities;
+
+/* sidebar width token + offset utility (desktop) */
+@layer base{ :root{ --sidebar-w: 16rem; } }
+@layer utilities{
+  .with-sidebar{ padding-left: var(--sidebar-w); }
+}
+@media (max-width:1024px){ .with-sidebar{ padding-left:0; } }
