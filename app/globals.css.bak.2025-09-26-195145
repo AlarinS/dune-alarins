@@ -114,11 +114,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
-/* util: отступ под левый сайдбар (16rem) */
-@layer utilities{
-  .with-sidebar{ padding-left:16rem; }
-}
-@media (max-width:1024px){
-  .with-sidebar{ padding-left:0; }
-}
